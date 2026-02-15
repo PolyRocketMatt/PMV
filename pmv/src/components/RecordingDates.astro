@@ -1,0 +1,620 @@
+---
+// Recording Dates (actually play performance dates)
+const recordingDates = [
+	{
+		date: "20",
+		month: "APRIL",
+		year: "2026",
+		day: "Zondag",
+		time: "20:00",
+		venue: "De Koelisse",
+		location: "Leuven",
+		status: "available",
+		special: "Opening Night - Extra Special!"
+	},
+	{
+		date: "21",
+		month: "APRIL",
+		year: "2026",
+		day: "Maandag",
+		time: "20:00",
+		venue: "De Koelisse",
+		location: "Leuven",
+		status: "available",
+		special: ""
+	},
+	{
+		date: "22",
+		month: "APRIL",
+		year: "2026",
+		day: "Dinsdag",
+		time: "20:00",
+		venue: "De Koelisse",
+		location: "Leuven",
+		status: "available",
+		special: "Final Show - Don't Miss It!"
+	}
+];
+---
+
+<section id="recording-dates" class="recording-dates">
+	<div class="container">
+		<div class="section-header">
+			<div class="live-indicator">
+				<span class="live-dot"></span>
+				<span class="live-text">LIVE RECORDING</span>
+			</div>
+			<h2 class="section-title">Studio Opnames</h2>
+			<div class="title-underline"></div>
+			<p class="section-subtitle">Kom kijken hoe we televisiegeschiedenis maken!</p>
+		</div>
+
+		<div class="dates-intro">
+			<p>
+				Word deel van het publiek tijdens onze live studio-opnames. Voel de energie, de spanning, en misschien
+				word je wel onderdeel van een viral moment. Dit is je kans om achter de schermen te kijken én vooraan te zitten!
+			</p>
+		</div>
+
+		<div class="dates-grid">
+			{recordingDates.map((recording, index) => (
+				<div class="date-card" data-index={index}>
+					<div class="date-header">
+						<div class="date-number">{recording.date}</div>
+						<div class="date-meta">
+							<div class="date-month">{recording.month}</div>
+							<div class="date-year">{recording.year}</div>
+						</div>
+					</div>
+					<div class="date-body">
+						<div class="date-day">{recording.day}</div>
+						<div class="date-time">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+								<path d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" stroke="currentColor" stroke-width="2"/>
+								<path d="M10 6V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+							</svg>
+							{recording.time}
+						</div>
+						<div class="date-venue">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+								<path d="M10 11C11.6569 11 13 9.65685 13 8C13 6.34315 11.6569 5 10 5C8.34315 5 7 6.34315 7 8C7 9.65685 8.34315 11 10 11Z" stroke="currentColor" stroke-width="2"/>
+								<path d="M10 2C6.13401 2 3 5.13401 3 9C3 13.5 10 18 10 18C10 18 17 13.5 17 9C17 5.13401 13.866 2 10 2Z" stroke="currentColor" stroke-width="2"/>
+							</svg>
+							<div>
+								<div class="venue-name">{recording.venue}</div>
+								<div class="venue-location">{recording.location}</div>
+							</div>
+						</div>
+						{recording.special && (
+							<div class="date-special">
+								<span class="sparkle">✨</span>
+								{recording.special}
+							</div>
+						)}
+					</div>
+					<div class="date-footer">
+						<button class="ticket-button" data-status={recording.status}>
+							<span>Tickets Reserveren</span>
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+								<path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</button>
+						<div class="status-indicator" data-status={recording.status}>
+							{recording.status === 'available' && 'Tickets Beschikbaar'}
+							{recording.status === 'limited' && 'Laatste Tickets'}
+							{recording.status === 'soldout' && 'Uitverkocht'}
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<div class="dates-info">
+			<div class="info-grid">
+				<div class="info-card">
+					<div class="info-icon">🎟️</div>
+					<h4>Ticketprijzen</h4>
+					<p>€5 normaal | €4 met Cultuurkaart KU Leuven | €3 met festivalticket openingnight</p>
+				</div>
+				<div class="info-card">
+					<div class="info-icon">⏰</div>
+					<h4>Deuren Open</h4>
+					<p>Kom 30 minuten voor aanvang. De beste plaatsen zijn first-come, first-served!</p>
+				</div>
+				<div class="info-card">
+					<div class="info-icon">📸</div>
+					<h4>Meet & Greet</h4>
+					<p>Na afloop kun je het team ontmoeten en foto's maken!</p>
+				</div>
+				<div class="info-card">
+					<div class="info-icon">🎬</div>
+					<h4>TV-uitzending</h4>
+					<p>De opname wordt binnen enkele weken uitgezonden. Je bent er live bij!</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="venue-info">
+			<h3 class="venue-title">Over De Koelisse</h3>
+			<p class="venue-description">
+				De Koelisse is de theaterzaal van de KU Leuven, perfect voor onze intieme studio-opnames.
+				Met state-of-the-art faciliteiten en een geweldige sfeer is het de ideale plek voor Praten Met Verstraeten.
+			</p>
+			<div class="venue-details">
+				<div class="detail-item">
+					<strong>Adres:</strong> Steengroevenlaan 3, 3001 Leuven
+				</div>
+				<div class="detail-item">
+					<strong>Parking:</strong> Parkeergelegenheid nabij de locatie
+				</div>
+				<div class="detail-item">
+					<strong>Bereikbaar:</strong> Auto, fiets of bus naar Heverlee Groenveld + korte wandeling
+				</div>
+				<div class="detail-item">
+					<strong>Openbaar vervoer:</strong> Busstop Heverlee Groenveld
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		// Animate cards on scroll
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		}, observerOptions);
+
+		const cards = document.querySelectorAll('.date-card, .info-card');
+		cards.forEach((card, index) => {
+			(card as HTMLElement).style.animationDelay = `${index * 0.1}s`;
+			observer.observe(card);
+		});
+
+		// Ticket button handlers
+		const ticketButtons = document.querySelectorAll('.ticket-button');
+		ticketButtons.forEach(btn => {
+			btn.addEventListener('click', () => {
+				alert('Deze talkshow is zo exclusief dat we doen alsof online tickets bestaan! Kom gewoon langs aan de deur 😉🎟️');
+			});
+		});
+
+		// Pulse animation for live indicator
+		const liveDot = document.querySelector('.live-dot') as HTMLElement;
+		if (liveDot) {
+			setInterval(() => {
+				liveDot.style.transform = 'scale(1.2)';
+				setTimeout(() => {
+					liveDot.style.transform = 'scale(1)';
+				}, 300);
+			}, 2000);
+		}
+	});
+</script>
+
+<style>
+	.recording-dates {
+		padding: 8rem 0;
+		background: linear-gradient(180deg, #1a0a2e 0%, #0A0E27 50%, #1a0a2e 100%);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.recording-dates::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background:
+			radial-gradient(circle at 30% 30%, rgba(255, 0, 85, 0.1) 0%, transparent 50%),
+			radial-gradient(circle at 70% 70%, rgba(0, 240, 255, 0.1) 0%, transparent 50%);
+		pointer-events: none;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.live-indicator {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		background: rgba(239, 68, 68, 0.2);
+		border: 1px solid #EF4444;
+		padding: 0.5rem 1.5rem;
+		border-radius: 50px;
+		margin-bottom: 2rem;
+		font-weight: 700;
+		font-size: 0.85rem;
+		letter-spacing: 0.1em;
+	}
+
+	.live-dot {
+		width: 10px;
+		height: 10px;
+		background: #EF4444;
+		border-radius: 50%;
+		display: block;
+		animation: pulse-dot 2s ease-in-out infinite;
+		transition: transform 0.3s ease;
+	}
+
+	@keyframes pulse-dot {
+		0%, 100% {
+			box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+		}
+		50% {
+			box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+		}
+	}
+
+	.live-text {
+		color: #EF4444;
+	}
+
+	.section-title {
+		font-size: clamp(3rem, 6vw, 5rem);
+		color: var(--color-light);
+		margin-bottom: 1rem;
+		text-transform: uppercase;
+	}
+
+	.title-underline {
+		width: 120px;
+		height: 5px;
+		background: var(--color-gradient-1);
+		margin: 0 auto 2rem;
+		border-radius: 3px;
+	}
+
+	.section-subtitle {
+		font-size: 1.2rem;
+		color: #94A3B8;
+		font-style: italic;
+	}
+
+	.dates-intro {
+		max-width: 800px;
+		margin: 0 auto 5rem;
+		text-align: center;
+	}
+
+	.dates-intro p {
+		font-size: 1.1rem;
+		line-height: 1.8;
+		color: #CBD5E1;
+	}
+
+	.dates-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2.5rem;
+		margin-bottom: 5rem;
+	}
+
+	.date-card {
+		background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(255, 51, 102, 0.1) 100%);
+		border: 2px solid rgba(255, 255, 255, 0.1);
+		border-radius: 24px;
+		padding: 2rem;
+		transition: all 0.4s ease;
+		opacity: 0;
+		transform: translateY(30px);
+		animation: fadeInUp 0.6s ease forwards;
+		animation-play-state: paused;
+	}
+
+	.date-card.visible {
+		animation-play-state: running;
+	}
+
+	.date-card:hover {
+		transform: translateY(-10px);
+		border-color: var(--color-primary);
+		box-shadow: 0 20px 60px rgba(255, 51, 102, 0.4);
+		background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(255, 51, 102, 0.15) 100%);
+	}
+
+	.date-header {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.date-number {
+		font-size: 5rem;
+		font-weight: 900;
+		line-height: 1;
+		background: var(--color-gradient-1);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-family: 'Bebas Neue', cursive;
+	}
+
+	.date-meta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.date-month {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--color-light);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-family: 'Bebas Neue', cursive;
+	}
+
+	.date-year {
+		font-size: 1rem;
+		color: #94A3B8;
+		font-weight: 600;
+	}
+
+	.date-body {
+		margin-bottom: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.date-day {
+		font-size: 1.2rem;
+		font-weight: 700;
+		color: var(--color-accent);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.date-time,
+	.date-venue {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		color: #CBD5E1;
+		font-size: 1rem;
+	}
+
+	.date-time svg,
+	.date-venue svg {
+		color: var(--color-secondary);
+		flex-shrink: 0;
+	}
+
+	.venue-name {
+		font-weight: 700;
+		color: var(--color-light);
+	}
+
+	.venue-location {
+		font-size: 0.9rem;
+		color: #94A3B8;
+	}
+
+	.date-special {
+		background: rgba(250, 204, 21, 0.1);
+		border: 1px solid rgba(250, 204, 21, 0.3);
+		padding: 0.75rem 1rem;
+		border-radius: 12px;
+		color: var(--color-accent);
+		font-weight: 600;
+		font-size: 0.9rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+	}
+
+	.sparkle {
+		font-size: 1.2rem;
+		animation: sparkle 2s ease-in-out infinite;
+	}
+
+	@keyframes sparkle {
+		0%, 100% { transform: rotate(0deg) scale(1); }
+		25% { transform: rotate(-15deg) scale(1.1); }
+		75% { transform: rotate(15deg) scale(1.1); }
+	}
+
+	.date-footer {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.ticket-button {
+		width: 100%;
+		background: var(--color-gradient-1);
+		border: none;
+		color: white;
+		padding: 1.2rem;
+		border-radius: 50px;
+		font-weight: 700;
+		font-size: 1rem;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.ticket-button:hover {
+		transform: scale(1.02);
+		box-shadow: 0 10px 30px rgba(255, 51, 102, 0.5);
+	}
+
+	.status-indicator {
+		text-align: center;
+		font-size: 0.85rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.status-indicator[data-status="available"] {
+		color: #22C55E;
+	}
+
+	.status-indicator[data-status="limited"] {
+		color: var(--color-accent);
+	}
+
+	.status-indicator[data-status="soldout"] {
+		color: #EF4444;
+	}
+
+	.dates-info {
+		margin-bottom: 5rem;
+	}
+
+	.info-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.info-card {
+		background: rgba(15, 23, 42, 0.5);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 16px;
+		padding: 2rem;
+		text-align: center;
+		transition: all 0.3s ease;
+		opacity: 0;
+		transform: translateY(20px);
+		animation: fadeInUp 0.6s ease forwards;
+		animation-play-state: paused;
+	}
+
+	.info-card.visible {
+		animation-play-state: running;
+	}
+
+	.info-card:hover {
+		transform: translateY(-5px);
+		border-color: var(--color-secondary);
+		background: rgba(99, 102, 241, 0.1);
+	}
+
+	.info-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.info-card h4 {
+		font-size: 1.3rem;
+		color: var(--color-light);
+		margin-bottom: 0.5rem;
+	}
+
+	.info-card p {
+		color: var(--color-text-light);
+		font-size: 0.95rem;
+		line-height: 1.6;
+	}
+
+	.venue-info {
+		max-width: 900px;
+		margin: 0 auto;
+		background: rgba(0, 240, 255, 0.03);
+		border: 2px solid rgba(0, 240, 255, 0.2);
+		border-radius: 24px;
+		padding: 3rem;
+		text-align: center;
+		position: relative;
+		z-index: 1;
+		box-shadow: 0 10px 40px rgba(0, 240, 255, 0.1);
+	}
+
+	.venue-title {
+		font-size: 2.5rem;
+		color: var(--color-light);
+		margin-bottom: 1.5rem;
+		text-transform: uppercase;
+		font-weight: 900;
+		letter-spacing: -0.02em;
+	}
+
+	.venue-description {
+		font-size: 1.1rem;
+		line-height: 1.8;
+		color: var(--color-text-light);
+		margin-bottom: 2rem;
+	}
+
+	.venue-details {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		text-align: left;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.detail-item {
+		display: flex;
+		gap: 1rem;
+		color: #94A3B8;
+		font-size: 1rem;
+	}
+
+	.detail-item strong {
+		color: var(--color-primary);
+		min-width: 100px;
+	}
+
+	@media (max-width: 768px) {
+		.recording-dates {
+			padding: 5rem 0;
+		}
+
+		.dates-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			margin-bottom: 3rem;
+		}
+
+		.info-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.venue-info {
+			padding: 2rem;
+		}
+
+		.venue-details {
+			text-align: center;
+		}
+
+		.detail-item {
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+
+		.detail-item strong {
+			min-width: auto;
+		}
+	}
+</style>
+

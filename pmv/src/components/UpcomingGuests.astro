@@ -1,0 +1,530 @@
+---
+// Upcoming Guests section
+const guests = [
+	{
+		name: "De Mysterieuze Gast",
+		episode: "Aflevering 1",
+		date: "20 April 2026",
+		teaser: "Een figuur zo mysterieus, dat zelfs wij niet weten wie het is. Maar trust us, het wordt LEGENDAARISCH.",
+		status: "mystery",
+		image: "guest-mystery.jpg"
+	},
+	{
+		name: "De Vergeten Celebrity",
+		episode: "Aflevering 2",
+		date: "21 April 2026",
+		teaser: "Ooit beroemd, nu vergeten, maar vanavond maakt deze persoon de comeback van het jaar.",
+		status: "confirmed",
+		image: "guest-celebrity.jpg"
+	},
+	{
+		name: "Het Internet Fenomeen",
+		episode: "Aflevering 3",
+		date: "22 April 2026",
+		teaser: "Van meme tot mainstream. Deze virale sensatie brengt de chaos mee die we allemaal nodig hebben.",
+		status: "confirmed",
+		image: "guest-internet.jpg"
+	},
+	{
+		name: "De Wildcard",
+		episode: "Alle Afleveringen",
+		date: "TBA",
+		teaser: "Er komt altijd iemand onverwachts langs. Dat is de magie van live televisie.",
+		status: "surprise",
+		image: "guest-wildcard.jpg"
+	}
+];
+---
+
+<section id="guests" class="upcoming-guests">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">Upcoming Guests</h2>
+			<div class="title-underline"></div>
+			<p class="section-subtitle">De mensen die de studio gaan opschudden</p>
+		</div>
+
+		<div class="guests-grid">
+			{guests.map((guest, index) => (
+				<div class="guest-card" data-status={guest.status} data-index={index}>
+					<div class="guest-image-container">
+						<img src={`/images/guests/${guest.image}`} alt={guest.name} class="guest-image" />
+						<div class="status-badge" data-status={guest.status}>
+							{guest.status === 'mystery' && '❓ Mystery'}
+							{guest.status === 'confirmed' && '✓ Confirmed'}
+							{guest.status === 'surprise' && '🎲 Wildcard'}
+						</div>
+						{guest.status === 'mystery' && (
+							<div class="mystery-overlay">
+								<div class="question-marks">???</div>
+							</div>
+						)}
+					</div>
+					<div class="guest-content">
+						<div class="guest-episode">{guest.episode}</div>
+						<h3 class="guest-name">{guest.name}</h3>
+						<div class="guest-date">{guest.date}</div>
+						<p class="guest-teaser">{guest.teaser}</p>
+						<button class="guest-cta">
+							<span>Meer Info</span>
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+								<path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</button>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<div class="guest-callout">
+			<div class="callout-content">
+				<h3 class="callout-title">Wil JIJ onze gast zijn?</h3>
+				<p class="callout-text">
+					Ben je interessant, bizarre, of gewoon brutaal genoeg? Misschien ben jij wel onze volgende gast!
+				</p>
+				<a href="#recording-dates" class="callout-button">
+					Solliciteer Nu
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+						<path d="M10 3V17M10 17L16 11M10 17L4 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</a>
+			</div>
+			<div class="callout-decoration">
+				<div class="spark spark-1">✨</div>
+				<div class="spark spark-2">⭐</div>
+				<div class="spark spark-3">💫</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		// Animate cards on scroll
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		}, observerOptions);
+
+		const cards = document.querySelectorAll('.guest-card');
+		cards.forEach((card, index) => {
+			(card as HTMLElement).style.animationDelay = `${index * 0.15}s`;
+			observer.observe(card);
+		});
+
+		// Add click handlers for guest CTAs (individual guest "Meer Info" buttons)
+		const ctaButtons = document.querySelectorAll('.guest-cta');
+		ctaButtons.forEach(btn => {
+			btn.addEventListener('click', () => {
+				alert('Deze functie komt binnenkort beschikbaar! 🎉');
+			});
+		});
+
+		// Mystery card animation
+		const mysteryCards = document.querySelectorAll('[data-status="mystery"]');
+		mysteryCards.forEach(card => {
+			card.addEventListener('mouseenter', () => {
+				const overlay = card.querySelector('.mystery-overlay') as HTMLElement;
+				if (overlay) {
+					overlay.style.opacity = '0.95';
+				}
+			});
+			card.addEventListener('mouseleave', () => {
+				const overlay = card.querySelector('.mystery-overlay') as HTMLElement;
+				if (overlay) {
+					overlay.style.opacity = '0.7';
+				}
+			});
+		});
+	});
+</script>
+
+<style>
+	.upcoming-guests {
+		padding: 8rem 0;
+		background: linear-gradient(180deg, #0A0E27 0%, #1a0a2e 50%, #0A0E27 100%);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.upcoming-guests::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background:
+			radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+			radial-gradient(circle at 20% 80%, rgba(255, 0, 85, 0.1) 0%, transparent 50%);
+		pointer-events: none;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 5rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.section-title {
+		font-size: clamp(3rem, 6vw, 5rem);
+		color: var(--color-light);
+		margin-bottom: 1rem;
+		text-transform: uppercase;
+		font-weight: 900;
+		letter-spacing: -0.02em;
+	}
+
+	.title-underline {
+		width: 120px;
+		height: 5px;
+		background: var(--color-gradient-2);
+		margin: 0 auto 2rem;
+		border-radius: 3px;
+		box-shadow: var(--shadow-neon-cyan);
+	}
+
+	.section-subtitle {
+		font-size: 1.2rem;
+		color: var(--color-text-muted);
+		font-style: italic;
+	}
+
+	.guests-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2.5rem;
+		margin-bottom: 5rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.guest-card {
+		background: rgba(255, 255, 255, 0.02);
+		border: 2px solid rgba(168, 85, 247, 0.2);
+		border-radius: 24px;
+		overflow: hidden;
+		transition: all 0.4s ease;
+		opacity: 0;
+		transform: translateY(30px) scale(0.95);
+		animation: fadeInUpGuest 0.6s ease forwards;
+		animation-play-state: paused;
+		position: relative;
+	}
+
+	.guest-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(255, 0, 85, 0.05));
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		pointer-events: none;
+	}
+
+	.guest-card:hover::before {
+		opacity: 1;
+	}
+
+	.guest-card.visible {
+		animation-play-state: running;
+	}
+
+	@keyframes fadeInUpGuest {
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	.guest-card:hover {
+		transform: translateY(-12px) scale(1);
+		border-color: var(--color-purple);
+		box-shadow: 0 20px 60px rgba(168, 85, 247, 0.4);
+	}
+
+	.guest-image-container {
+		position: relative;
+		width: 100%;
+		height: 300px;
+		overflow: hidden;
+	}
+
+	.guest-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.4s ease;
+	}
+
+	.guest-card:hover .guest-image {
+		transform: scale(1.1);
+	}
+
+	.status-badge {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		padding: 0.5rem 1rem;
+		border-radius: 50px;
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		backdrop-filter: blur(10px);
+		z-index: 2;
+	}
+
+	.status-badge[data-status="mystery"] {
+		background: rgba(250, 204, 21, 0.3);
+		border: 1px solid var(--color-accent);
+		color: var(--color-accent);
+	}
+
+	.status-badge[data-status="confirmed"] {
+		background: rgba(34, 197, 94, 0.3);
+		border: 1px solid #22C55E;
+		color: #22C55E;
+	}
+
+	.status-badge[data-status="surprise"] {
+		background: rgba(255, 51, 102, 0.3);
+		border: 1px solid var(--color-primary);
+		color: var(--color-primary);
+	}
+
+	.mystery-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(135deg, rgba(250, 204, 21, 0.3), rgba(255, 51, 102, 0.3));
+		backdrop-filter: blur(8px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0.7;
+		transition: opacity 0.3s ease;
+		z-index: 1;
+	}
+
+	.question-marks {
+		font-size: 6rem;
+		font-weight: 900;
+		color: white;
+		text-shadow: 0 0 20px rgba(250, 204, 21, 0.8);
+		animation: pulse 2s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+		50% {
+			transform: scale(1.1);
+			opacity: 0.8;
+		}
+	}
+
+	.guest-content {
+		padding: 2rem;
+	}
+
+	.guest-episode {
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-purple);
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+	}
+
+	.guest-name {
+		font-size: 1.8rem;
+		color: var(--color-light);
+		margin-bottom: 0.5rem;
+		font-weight: 900;
+		letter-spacing: -0.02em;
+	}
+
+	.guest-date {
+		font-size: 0.95rem;
+		color: var(--color-primary);
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+
+	.guest-teaser {
+		color: var(--color-text-light);
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+		font-size: 0.95rem;
+	}
+
+	.guest-cta {
+		background: transparent;
+		border: 2px solid var(--color-purple);
+		color: var(--color-light);
+		padding: 0.8rem 1.5rem;
+		border-radius: 50px;
+		font-weight: 700;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		text-transform: uppercase;
+		font-size: 0.85rem;
+		letter-spacing: 0.05em;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.guest-cta::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: var(--color-purple);
+		transition: left 0.3s ease;
+		z-index: -1;
+	}
+
+	.guest-cta:hover::before {
+		left: 0;
+	}
+
+	.guest-cta:hover {
+		border-color: var(--color-purple);
+		transform: translateX(5px);
+		box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+	}
+
+	.guest-callout {
+		background: var(--color-gradient-1);
+		border-radius: 30px;
+		padding: 4rem;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.callout-content {
+		position: relative;
+		z-index: 2;
+	}
+
+	.callout-title {
+		font-size: clamp(2rem, 4vw, 3.5rem);
+		color: white;
+		margin-bottom: 1rem;
+		text-transform: uppercase;
+	}
+
+	.callout-text {
+		font-size: 1.2rem;
+		color: white;
+		margin-bottom: 2rem;
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.callout-button {
+		background: white;
+		color: var(--color-primary);
+		border: none;
+		padding: 1.2rem 2.5rem;
+		border-radius: 50px;
+		font-size: 1.1rem;
+		font-weight: 700;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.callout-button:hover {
+		transform: scale(1.05);
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+	}
+
+	.callout-decoration {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.spark {
+		position: absolute;
+		font-size: 3rem;
+		animation: float 3s ease-in-out infinite;
+	}
+
+	.spark-1 {
+		top: 10%;
+		left: 10%;
+		animation-delay: 0s;
+	}
+
+	.spark-2 {
+		top: 20%;
+		right: 15%;
+		animation-delay: 1s;
+	}
+
+	.spark-3 {
+		bottom: 15%;
+		left: 20%;
+		animation-delay: 2s;
+	}
+
+	@media (max-width: 768px) {
+		.upcoming-guests {
+			padding: 5rem 0;
+		}
+
+		.guests-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			margin-bottom: 3rem;
+		}
+
+		.guest-callout {
+			padding: 3rem 2rem;
+		}
+
+		.callout-text {
+			font-size: 1rem;
+		}
+
+		.callout-button {
+			padding: 1rem 2rem;
+			font-size: 1rem;
+		}
+	}
+</style>
+

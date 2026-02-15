@@ -1,0 +1,696 @@
+---
+// Hero section with flashy animation
+---
+
+<section class="hero">
+	<!-- Animated grid background -->
+	<div class="hero-grid"></div>
+
+	<!-- Neon orbs -->
+	<div class="hero-background">
+		<div class="neon-orb orb-1"></div>
+		<div class="neon-orb orb-2"></div>
+		<div class="neon-orb orb-3"></div>
+		<div class="neon-orb orb-4"></div>
+	</div>
+
+	<!-- Floating particles -->
+	<div class="particles">
+		{Array.from({length: 30}).map((_, i) => (
+			<div class="particle" style={`
+				left: ${Math.random() * 100}%;
+				top: ${Math.random() * 100}%;
+				animation-delay: ${Math.random() * 5}s;
+				animation-duration: ${3 + Math.random() * 4}s;
+			`}></div>
+		))}
+	</div>
+
+	<!-- Main content -->
+	<div class="hero-content container">
+		<!-- TV frame effect -->
+		<div class="tv-frame">
+			<div class="tv-scan"></div>
+			<div class="tv-glitch"></div>
+		</div>
+
+		<div class="logo-wrapper">
+			<div class="logo-glitch-wrapper">
+				<h1 class="logo-title">
+					<span class="word praten" data-text="PRATEN">PRATEN</span>
+					<span class="word met" data-text="MET">MET</span>
+					<span class="word verstraeten" data-text="VERSTRAETEN">VERSTRAETEN</span>
+				</h1>
+			</div>
+			<p class="tagline">
+				<span class="tagline-icon">⚡</span>
+				DE TALKSHOW DIE NIEMAND VERWACHTTE
+				<span class="tagline-icon">⚡</span>
+			</p>
+			<div class="live-badge">
+				<span class="live-dot"></span>
+				<span>LIVE VANAF APRIL 2026</span>
+			</div>
+		</div>
+
+		<div class="hero-cta">
+			<a href="#recording-dates" class="cta-button primary">
+				<span class="button-text">Tickets Kopen</span>
+				<span class="button-icon">→</span>
+				<span class="button-glow"></span>
+			</a>
+			<a href="#about" class="cta-button secondary">
+				<span class="button-text">Ontdek Meer</span>
+				<span class="button-icon">↓</span>
+				<span class="button-glow"></span>
+			</a>
+		</div>
+
+		<!-- Animated stats bar -->
+		<div class="hero-stats">
+			<div class="stat">
+				<span class="stat-number">3</span>
+				<span class="stat-label">Shows</span>
+			</div>
+			<div class="stat-divider"></div>
+			<div class="stat">
+				<span class="stat-number">∞</span>
+				<span class="stat-label">Chaos</span>
+			</div>
+			<div class="stat-divider"></div>
+			<div class="stat">
+				<span class="stat-number">100%</span>
+				<span class="stat-label">Energie</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="scroll-indicator">
+		<div class="scroll-text">SCROLL</div>
+		<div class="scroll-arrow">↓</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		background: radial-gradient(ellipse at top, #1a0a2e 0%, var(--color-darker) 50%, #000000 100%);
+	}
+
+	/* Animated grid background */
+	.hero-grid {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image:
+			linear-gradient(rgba(255, 0, 85, 0.1) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+		background-size: 50px 50px;
+		animation: gridMove 20s linear infinite;
+		z-index: 0;
+		opacity: 0.3;
+	}
+
+	@keyframes gridMove {
+		0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+		100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+	}
+
+	/* Neon orbs with glow */
+	.hero-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		z-index: 1;
+	}
+
+	.neon-orb {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(100px);
+		opacity: 0.6;
+		animation: floatNeon 10s ease-in-out infinite;
+	}
+
+	.orb-1 {
+		width: 600px;
+		height: 600px;
+		background: radial-gradient(circle, #FF0055 0%, transparent 70%);
+		top: -20%;
+		right: 10%;
+		animation-delay: 0s;
+	}
+
+	.orb-2 {
+		width: 500px;
+		height: 500px;
+		background: radial-gradient(circle, #00F0FF 0%, transparent 70%);
+		bottom: -15%;
+		left: 5%;
+		animation-delay: 3s;
+	}
+
+	.orb-3 {
+		width: 450px;
+		height: 450px;
+		background: radial-gradient(circle, #A855F7 0%, transparent 70%);
+		top: 40%;
+		left: 60%;
+		animation-delay: 6s;
+	}
+
+	.orb-4 {
+		width: 400px;
+		height: 400px;
+		background: radial-gradient(circle, #FFD700 0%, transparent 70%);
+		top: 20%;
+		left: 10%;
+		animation-delay: 9s;
+	}
+
+	@keyframes floatNeon {
+		0%, 100% {
+			transform: translate(0, 0) scale(1);
+		}
+		25% {
+			transform: translate(40px, -40px) scale(1.1);
+		}
+		50% {
+			transform: translate(-30px, 30px) scale(0.95);
+		}
+		75% {
+			transform: translate(30px, 20px) scale(1.05);
+		}
+	}
+
+	/* Particles */
+	.particles {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+		pointer-events: none;
+	}
+
+	.particle {
+		position: absolute;
+		width: 3px;
+		height: 3px;
+		background: white;
+		border-radius: 50%;
+		animation: particleFloat linear infinite;
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+	}
+
+	@keyframes particleFloat {
+		0% {
+			transform: translateY(0) scale(1);
+			opacity: 0;
+		}
+		10% {
+			opacity: 1;
+		}
+		90% {
+			opacity: 1;
+		}
+		100% {
+			transform: translateY(-100vh) scale(0);
+			opacity: 0;
+		}
+	}
+
+	/* TV frame effect */
+	.tv-frame {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: 3;
+	}
+
+	.tv-scan {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+		animation: scan 8s linear infinite;
+	}
+
+	@keyframes scan {
+		0% { top: 0; }
+		100% { top: 100%; }
+	}
+
+	.tv-glitch {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(transparent 50%, rgba(0, 240, 255, 0.02) 50%);
+		background-size: 100% 4px;
+		animation: glitchLines 0.1s infinite;
+		opacity: 0.3;
+	}
+
+	/* Content */
+	.hero-content {
+		position: relative;
+		z-index: 10;
+		text-align: center;
+		animation: fadeInUp 1s ease-out;
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(40px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.logo-wrapper {
+		margin-bottom: 3rem;
+	}
+
+	.logo-glitch-wrapper {
+		position: relative;
+	}
+
+	.logo-title {
+		font-size: clamp(3.5rem, 12vw, 9rem);
+		line-height: 0.85;
+		margin-bottom: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		font-weight: 900;
+		letter-spacing: -0.03em;
+	}
+
+	.logo-title .word {
+		display: block;
+		position: relative;
+		background: var(--color-gradient-3);
+		background-size: 200% auto;
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		animation: gradientShift 4s ease infinite;
+		text-shadow: 0 0 80px rgba(255, 0, 85, 0.5);
+		filter: drop-shadow(0 0 20px rgba(255, 0, 85, 0.6));
+	}
+
+	.logo-title .word::before,
+	.logo-title .word::after {
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: var(--color-gradient-3);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.logo-title .word::before {
+		animation: glitch1 2.5s infinite;
+		clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+	}
+
+	.logo-title .word::after {
+		animation: glitch2 2.5s infinite;
+		clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+	}
+
+	@keyframes glitch1 {
+		0%, 100% { transform: translate(0); }
+		33% { transform: translate(-2px, 2px); }
+		66% { transform: translate(2px, -2px); }
+	}
+
+	@keyframes glitch2 {
+		0%, 100% { transform: translate(0); }
+		33% { transform: translate(2px, -2px); }
+		66% { transform: translate(-2px, 2px); }
+	}
+
+	.praten {
+		animation-delay: 0s;
+	}
+
+	.met {
+		font-size: 0.5em;
+		opacity: 0.9;
+		letter-spacing: 0.3em;
+		animation-delay: 0.1s;
+	}
+
+	.verstraeten {
+		animation-delay: 0.2s;
+	}
+
+	@keyframes gradientShift {
+		0%, 100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+
+	.tagline {
+		font-size: clamp(0.8rem, 2vw, 1.2rem);
+		font-weight: 700;
+		letter-spacing: 0.25em;
+		color: var(--color-light);
+		text-transform: uppercase;
+		margin-bottom: 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+	}
+
+	.tagline-icon {
+		font-size: 1.5em;
+		animation: pulse 2s ease-in-out infinite;
+		display: inline-block;
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+		50% {
+			transform: scale(1.2);
+			opacity: 0.8;
+		}
+	}
+
+	.live-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		background: rgba(255, 0, 85, 0.2);
+		border: 2px solid var(--color-primary);
+		padding: 0.75rem 1.5rem;
+		border-radius: 50px;
+		font-weight: 700;
+		font-size: 0.9rem;
+		letter-spacing: 0.1em;
+		color: var(--color-light);
+		text-transform: uppercase;
+		box-shadow: var(--shadow-neon-pink);
+		animation: badgePulse 2s ease-in-out infinite;
+	}
+
+	@keyframes badgePulse {
+		0%, 100% {
+			box-shadow: 0 0 20px rgba(255, 0, 85, 0.5), 0 0 40px rgba(255, 0, 85, 0.3);
+		}
+		50% {
+			box-shadow: 0 0 30px rgba(255, 0, 85, 0.8), 0 0 60px rgba(255, 0, 85, 0.5);
+		}
+	}
+
+	.live-dot {
+		width: 12px;
+		height: 12px;
+		background: var(--color-primary);
+		border-radius: 50%;
+		animation: liveDot 1.5s ease-in-out infinite;
+		box-shadow: 0 0 10px var(--color-primary);
+	}
+
+	@keyframes liveDot {
+		0%, 100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+		50% {
+			transform: scale(1.3);
+			opacity: 0.7;
+		}
+	}
+
+	/* CTA Buttons */
+	.hero-cta {
+		display: flex;
+		gap: 1.5rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-bottom: 3rem;
+	}
+
+	.cta-button {
+		position: relative;
+		padding: 1.3rem 3rem;
+		font-size: 1rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		border-radius: 50px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		border: 2px solid;
+		overflow: hidden;
+		font-family: 'Montserrat', sans-serif;
+	}
+
+	.cta-button .button-glow {
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+		transition: left 0.5s;
+	}
+
+	.cta-button:hover .button-glow {
+		left: 100%;
+	}
+
+	.cta-button .button-text {
+		position: relative;
+		z-index: 1;
+	}
+
+	.cta-button .button-icon {
+		position: relative;
+		z-index: 1;
+		font-size: 1.3em;
+		transition: transform 0.3s ease;
+	}
+
+	.cta-button.primary {
+		background: var(--color-gradient-1);
+		border-color: var(--color-primary);
+		color: white;
+		box-shadow: var(--shadow-neon-pink);
+	}
+
+	.cta-button.primary:hover {
+		transform: translateY(-3px) scale(1.05);
+		box-shadow: 0 0 30px rgba(255, 0, 85, 0.8), 0 0 60px rgba(255, 0, 85, 0.5);
+	}
+
+	.cta-button.primary:hover .button-icon {
+		transform: translateX(5px);
+	}
+
+	.cta-button.secondary {
+		background: transparent;
+		border-color: var(--color-secondary);
+		color: var(--color-secondary);
+		box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+	}
+
+	.cta-button.secondary:hover {
+		background: var(--color-secondary);
+		color: var(--color-dark);
+		transform: translateY(-3px) scale(1.05);
+		box-shadow: var(--shadow-neon-cyan);
+	}
+
+	.cta-button.secondary:hover .button-icon {
+		transform: translateY(3px);
+	}
+
+	/* Hero stats */
+	.hero-stats {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		padding: 1.5rem 3rem;
+		background: rgba(255, 255, 255, 0.05);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 100px;
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+	}
+
+	.stat {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.stat-number {
+		font-size: 2rem;
+		font-weight: 900;
+		font-family: 'Montserrat', sans-serif;
+		background: var(--color-gradient-neon);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		line-height: 1;
+	}
+
+	.stat-label {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-text-muted);
+		font-weight: 600;
+	}
+
+	.stat-divider {
+		width: 1px;
+		height: 40px;
+		background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+	}
+
+	/* Scroll indicator */
+	.scroll-indicator {
+		position: absolute;
+		bottom: 3rem;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		animation: bounceScroll 2s ease-in-out infinite;
+		cursor: pointer;
+	}
+
+	@keyframes bounceScroll {
+		0%, 20%, 50%, 80%, 100% {
+			transform: translateX(-50%) translateY(0);
+		}
+		40% {
+			transform: translateX(-50%) translateY(-15px);
+		}
+		60% {
+			transform: translateX(-50%) translateY(-7px);
+		}
+	}
+
+	.scroll-text {
+		font-size: 0.7rem;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+		font-weight: 600;
+	}
+
+	.scroll-arrow {
+		font-size: 1.5rem;
+		color: var(--color-secondary);
+		text-shadow: 0 0 10px var(--color-secondary);
+	}
+
+	/* Responsive */
+	@media (max-width: 1024px) {
+		.logo-title {
+			font-size: clamp(3rem, 10vw, 7rem);
+		}
+
+		.hero-stats {
+			gap: 1.5rem;
+			padding: 1.25rem 2rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			min-height: 95vh;
+		}
+
+		.logo-title {
+			gap: 0.3rem;
+			margin-bottom: 1.5rem;
+		}
+
+		.tagline {
+			font-size: 0.7rem;
+			letter-spacing: 0.15em;
+		}
+
+		.tagline-icon {
+			font-size: 1.2em;
+		}
+
+		.live-badge {
+			font-size: 0.75rem;
+			padding: 0.6rem 1.2rem;
+		}
+
+		.cta-button {
+			padding: 1.1rem 2.2rem;
+			font-size: 0.9rem;
+		}
+
+		.hero-stats {
+			flex-direction: column;
+			gap: 1rem;
+			padding: 1.5rem 2rem;
+			border-radius: 20px;
+		}
+
+		.stat-divider {
+			width: 60px;
+			height: 1px;
+		}
+
+		.scroll-indicator {
+			bottom: 2rem;
+		}
+
+		.neon-orb {
+			filter: blur(60px);
+		}
+	}
+</style>
+
