@@ -1,0 +1,39 @@
+---
+import MenuButton from "../components/MenuButton.astro";
+
+import HomeIcon from "../assets/house-line.svg"
+import HomeHoverIcon from "../assets/house-line-white.svg"
+---
+
+<div class="menu-bar">
+    <MenuButton href="/">
+        <HomeIcon slot="icon" width="20" height="20" />
+        <HomeHoverIcon slot="hoverIcon" width="20" height="20" />
+    </MenuButton>
+
+    <MenuButton href="/tickets/" class="menu-right">
+        Tickets
+    </MenuButton>
+
+    <MenuButton href="/about/">
+        Over
+    </MenuButton>
+</div>
+
+<style>
+    .menu-bar {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        padding: 12px 18px;
+        background: #CFE4F9;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        width: 100%;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .menu-right {
+        margin-left: auto;
+    }
+</style>
