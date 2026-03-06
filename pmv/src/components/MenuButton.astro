@@ -1,0 +1,89 @@
+---
+const { href, label } = Astro.props;
+
+const hasIcon = Astro.slots.has("icon");
+const hasHoverIcon = Astro.slots.has("hoverIcon");
+const hasText = Astro.slots.has("default");
+---
+
+<a href={href} class="menu-button" aria-label={label}>
+    {hasIcon && (
+        <span class="icon-wrapper default-icon">
+            <slot name="icon" />
+        </span>
+    )}
+    {hasHoverIcon && (
+        <span class="icon-wrapper hover-icon">
+            <slot name="hoverIcon" />
+        </span>
+    )}
+    {hasText && (
+        <span class="text">
+            <slot />
+        </span>
+    )}
+</a>
+
+<style>
+    .menu-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        padding: 8px 12px;
+        border-radius: 8px;
+        text-decoration: none;
+
+        color: #27466E;
+        font-size: 18px;
+        font-weight: 500;
+
+        transition: 
+            background-color 0.2s ease,
+            transform 0.15s ease,
+            box-shadow 0.15s ease;
+    }
+
+    /* Hover effect */
+    .menu-button:hover {
+        color: white;
+        background-color: #538BDD;
+        transform: translateY(-2px);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    }
+
+    /* Icon swap */
+    .icon-wrapper {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Default icon visible initially, hover icon hidden */
+    .default-icon {
+        display: inline-flex;
+    }
+
+    .hover-icon {
+        display: none;
+    }
+
+    /* Swap on hover */
+    .menu-button:hover .default-icon {
+        display: none;
+    }
+
+    .menu-button:hover .hover-icon {
+        display: inline-flex;
+    }
+
+    .menu-button:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    .text {
+        display: flex;
+        align-items: center;
+    }
+</style>
