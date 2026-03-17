@@ -1,26 +1,79 @@
 ---
 ---
 
-<div class="finale-div">
-    <h1 class="finale-text">SEIZOENSFINALE</h1>
+<div class="finale-upper-div">
+    <div class="finale-div">
+        <div class="lines-top">
+            <div class="finale-underline-top-3" />
+            <div class="finale-underline-top-2" />
+            <div class="finale-underline-top-1" />
+        </div>
+
+        <h1 class="finale-text">SEIZOENSFINALE!</h1>
+
+        <div class="lines-bot">
+            <div class="finale-underline-bot-1" />
+            <div class="finale-underline-bot-2" />
+            <div class="finale-underline-bot-3" />
+        </div>
+    </div>
 </div>
 
 <style>
-    .finale-div {
-        width: 100%;
-        height: 100vh;
-
+    .finale-upper-div {
         background-color: #27466E;
 
+        height: 100%;
+    }
+
+    .finale-div {
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;    
+        align-items: center;
+
+        gap: 0px;
+
+        position: relative;
+        top: 4em;
     }
 
     .finale-text {
-        color: #F5FFFF;
+        color: #D3B054;
 
-        font-size: 8rem;
+        margin: 0;
+
+        font-size: clamp(2rem, 10vw, 8rem);
         font-family: 'Tilt Warp', sans-serif;
+    }
+
+    .lines-top, .lines-bot {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(15px, 0.5vw, 15px);
+        width: 100%;
+    }
+
+    .lines-top {
+        margin-bottom: 0.5em;
+    }
+
+    .lines-bot {
+        margin-top: 0.5em;
+    }
+
+    /* Top lines: get wider as they approach the text */
+    .finale-underline-top-3 { width: 35%; margin-right: auto; background-color: rgba(208, 143, 70, 1); }
+    .finale-underline-top-2 { width: 50%; margin-right: auto; background-color: rgba(210, 160, 76, 1); }
+    .finale-underline-top-1 { width: 65%; margin-right: auto; background-color: rgba(211, 176, 84, 1); }
+
+    /* Bottom lines: get narrower as they move away from the text */
+    .finale-underline-bot-1 { width: 65%; margin-left: auto; background-color: rgba(211, 176, 84, 1); }
+    .finale-underline-bot-2 { width: 50%; margin-left: auto; background-color: rgba(210, 160, 76, 1); }
+    .finale-underline-bot-3 { width: 35%; margin-left: auto; background-color: rgba(208, 143, 70, 1); }
+
+    /* Shared */
+    .lines-top div, .lines-bot div {
+        height: 1em;
     }
 </style>
