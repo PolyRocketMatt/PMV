@@ -1,0 +1,87 @@
+---
+import '../styles/global.css'
+---
+
+<div class="header-div-upper">
+    <div class="header-cell-left">
+        <h1 class="header-content">KIJK LIVE IN LEUVEN!</h1>
+    </div>
+
+    <div class="header-cell-middle">
+        <h1 class="header-content-dummy">aa</h1>
+    </div>
+
+    <div class="header-cell-right">
+        <h1 class="header-content">KOOP JE TICKETS <a href="#Tickets" class="header-ticket-link">HIER</a></h1>
+    </div>
+</div>
+
+<style>
+    .header-div-upper {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr; /* left | middle | right */
+        align-items: center;
+        width: 100%;
+        background-color: var(--blue);
+        gap: clamp(1rem, 2vw, 2rem);
+        position: relative;
+    }
+
+    .header-cell-left {
+        display: flex;
+        justify-content: flex-end; /* push text toward middle */
+        align-items: center;
+    }
+
+    .header-cell-middle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-cell-right {
+        display: flex;
+        justify-content: flex-start; /* push text toward middle */
+        align-items: center;
+    }
+
+    .header-cell {
+        flex: 1;               
+        display: flex;         
+        justify-content: center; 
+    }
+
+    .header-content, .header-content-dummy {
+        max-width: 90%;       
+        text-align: center;   
+        font-family: 'Tilt Warp', sans-serif;
+        font-size: clamp(1rem, 2vw, 2rem);
+        filter: brightness(1.15);
+    }
+
+    .header-content {
+        color: white;
+    }
+
+    .header-content-dummy {
+        color: transparent;
+        background-color: white;
+        height: 0.25em;
+    }
+
+    .header-ticket-link {
+        background-color: var(--dark-orange);
+        color: white;
+        padding: 4px 10px 6px 10px;
+        border-radius: 12px;
+        text-decoration: underline;
+        
+        transition: all 100ms ease-out;
+    }
+
+    .header-ticket-link:hover {
+        background-color: var(--orange);
+        
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+</style>
