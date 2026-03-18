@@ -62,7 +62,8 @@ import '../styles/global.css'
         justify-content: center; 
     }
 
-    .header-content, .header-content-dummy {
+    .header-content, 
+    .header-content-dummy {
         max-width: 90%;       
         text-align: center;   
         font-family: 'Tilt Warp', sans-serif;
@@ -100,5 +101,12 @@ import '../styles/global.css'
         
         filter:
             drop-shadow(0 0 10px rgba(255, 255, 255, 0.12)); 
+    }
+
+    @media (max-width: 768px) {
+        .header-content,
+        .header-content-dummy {
+            font-size: clamp(1rem, 1vw, 2rem);
+        }
     }
 </style>
