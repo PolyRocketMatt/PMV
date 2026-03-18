@@ -1,12 +1,46 @@
 ---
+import LogoWina from "../assets/wina.png"
+import LogoJP from "../assets/jp.png"
 ---
 
 <div class="footer-div">
-
+    <p class="sponsor-text">Met Dank Aan</p>
+    <div class="footer-content">
+        <img class="sponsor-logo" src={LogoWina.src} alt="Logo" />
+        <img class="sponsor-logo" src={LogoJP.src} alt="Logo" />
+    </div>
 </div>
 
 <style>
     .footer-div {
-        
+        position: relative;
+        height: 50%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        gap: 4em;
+    }
+
+    .sponsor-text {
+        color: white;
+        font-size: clamp(2rem, 1vw, 8rem);
+        font-family: 'Tilt Warp', sans-serif;
+    }
+
+    .sponsor-logo {
+        width: 10%;
+
+        filter:
+            drop-shadow(0 0 10px rgba(128,128,128, 0.4)); 
     }
 </style>

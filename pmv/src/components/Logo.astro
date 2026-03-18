@@ -40,5 +40,20 @@ import LeuvenBackground from "../assets/leuven_night.jpg"
         filter:
             brightness(1.15)
             drop-shadow(0 0 30px rgba(255,255,255,0.9));
+
+        opacity: 0;
+        animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .logo-div {
+            height: 50vh;
+        }
     }
 </style>
