@@ -10,7 +10,6 @@
 		<!-- SCRIPTS -->
 		<script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>
 
-
 		<!-- FONT -->
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Maven+Pro:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
@@ -21,18 +20,48 @@
 		<title>Praten Met Verstraeten</title>
 	</head>
 	<body>
+		<div class="background-layer"></div>
 		<slot />
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		background-color: black;
-
-		margin: 0%;
-		padding: 0%;
+	html, body {
+		margin: 0;
+		padding: 0;
 		width: 100%;
 		height: 100%;
 	}
+
+	.background-layer {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('../assets/background.png');
+		background-size: cover;
+		background-position: top center;
+		z-index: -1;
+		transform: translateY(0);
+		transition: transform 0.1s linear;
+	}
+
+	@media (max-width: 768px) {
+		.background-layer {
+			background-image: url('../assets/background-mobile.png');
+			background-position: center top;
+		}
+	}
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+	const bg = document.querySelector(".background-layer");
+
+	window.addEventListener("scroll", () => {
+		const scrolled = window.scrollY;
+		bg.style.backgroundPositionY = `${-scrolled * 1.2}px`;
+	});
+});
+</script>

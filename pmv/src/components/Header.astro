@@ -16,6 +16,7 @@ import '../styles/global.css'
     </div>
 </div>
 
+
 <style>
     .header-div-upper {
         display: grid;
@@ -24,7 +25,8 @@ import '../styles/global.css'
         width: 100%;
         background-color: var(--blue);
         gap: clamp(1rem, 2vw, 2rem);
-        position: relative;
+        position: fixed;
+        z-index: 1000;  
     }
 
     .header-cell-left {

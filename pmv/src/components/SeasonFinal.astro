@@ -1,0 +1,231 @@
+---
+---
+
+<div class="finale-parent-div">
+    <div class="finale-div">
+        <div class="lines-top">
+            <div class="finale-underline-top-3" />
+            <div class="finale-underline-top-2" />
+            <div class="finale-underline-top-1" />
+        </div>
+
+        <h1 class="finale-text">SEIZOENSFINALE!</h1>
+
+        <div class="lines-bot">
+            <div class="finale-underline-bot-1" />
+            <div class="finale-underline-bot-2" />
+            <div class="finale-underline-bot-3" />
+        </div>
+    </div>
+
+    <div class="finale-">
+
+    </div>
+</div>
+
+<style>
+    .finale-parent-div {
+        background-color: transparent;
+        height: 125%;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .finale-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0px;
+
+        position: relative;
+        top: 6em;
+    }
+
+    .finale-text {
+        color: #D3B054;
+
+        margin: 0;
+
+        font-size: clamp(2rem, 10vw, 8rem);
+        font-family: 'Tilt Warp', sans-serif;
+
+        filter:
+            brightness(1.05)  
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .lines-top, .lines-bot {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(15px, 0.5vw, 15px);
+        width: 100%;
+    }
+
+    .lines-top {
+        margin-bottom: 0.5em;
+    }
+
+    .lines-bot {
+        margin-top: 0.5em;
+    }
+
+    .finale-underline-top-3 { 
+        width: 35%; 
+        margin-right: auto; 
+        background-color: rgba(208, 143, 70, 0.9); 
+
+        transform: translateX(140%);
+        opacity: 0;
+        
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .finale-underline-top-2 { 
+        width: 50%; 
+        margin-right: auto; 
+        background-color: rgba(210, 160, 76, 0.95);  
+        
+        transform: translateX(140%);
+        opacity: 0;
+
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));   
+    }
+
+    .finale-underline-top-1 { 
+        width: 65%; 
+        margin-right: auto; 
+        background-color: rgba(211, 176, 84, 1);  
+        
+        transform: translateX(140%);
+        opacity: 0;
+
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .finale-underline-bot-1 { 
+        width: 65%; 
+        margin-left: auto; 
+        background-color: rgba(211, 176, 84, 1);  
+        
+        transform: translateX(-140%);
+        opacity: 0;
+
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .finale-underline-bot-2 { 
+        width: 50%; 
+        margin-left: auto; 
+        background-color: rgba(210, 160, 76, 0.95);  
+        
+        transform: translateX(-140%);
+        opacity: 0;
+
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .finale-underline-bot-3 { 
+        width: 35%; 
+        margin-left: auto; 
+        background-color: rgba(208, 143, 70, 0.9);  
+        
+        transform: translateX(-140%);
+        opacity: 0;
+
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .lines-top div, .lines-bot div {
+        height: 1em;
+
+        transition:
+            transform 2s cubic-bezier(0.22, 1, 0.36, 1),
+            opacity 0.8s ease;
+    }
+
+    .finale-parent-div.visible .lines-top div,
+    .finale-parent-div.visible .lines-bot div {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .finale-underline-top-3 { transition-delay: 0.05s; }
+    .finale-underline-top-2 { transition-delay: 0.15s; }
+    .finale-underline-top-1 { transition-delay: 0.25s; }
+
+    .finale-underline-bot-1 { transition-delay: 0.05s; }
+    .finale-underline-bot-2 { transition-delay: 0.15s; }
+    .finale-underline-bot-3 { transition-delay: 0.25s; }
+
+    .finale-parent-div.animate .finale-underline-top-3 {
+        animation: flyFromRight 0.9s ease-out forwards;
+    }
+
+    .finale-parent-div.animate .finale-underline-top-2 {
+        animation: flyFromRight 1.1s ease-out forwards;
+    }
+
+    .finale-parent-div.animate .finale-underline-top-1 {
+        animation: flyFromRight 1.3s ease-out forwards;
+    }
+
+    .finale-parent-div.animate .finale-underline-bot-1 {
+        animation: flyFromLeft 0.9s ease-out forwards;
+    }
+
+    .finale-parent-div.animate .finale-underline-bot-2 {
+        animation: flyFromLeft 1.1s ease-out forwards;
+    }
+
+    .finale-parent-div.animate .finale-underline-bot-3 {
+        animation: flyFromLeft 1.3s ease-out forwards;
+    }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const finale = document.querySelector(".finale-parent-div");
+
+    let lastScrollY = window.scrollY;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+
+            const currentScroll = window.scrollY;
+            const scrollingDown = currentScroll > lastScrollY;
+
+            if (entry.isIntersecting) {
+                finale.classList.add("visible");
+            } 
+            else if (!scrollingDown) {
+                // only reverse when scrolling UP
+                finale.classList.remove("visible");
+            }
+
+            lastScrollY = currentScroll;
+
+        });
+    }, {
+        threshold: 0.4
+    });
+
+    observer.observe(finale);
+
+});
+</script>
