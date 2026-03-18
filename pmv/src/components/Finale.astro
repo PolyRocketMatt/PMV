@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="finale-upper-div">
+<div class="content-div">
     <div class="finale-div">
         <div class="lines-top">
             <div class="finale-underline-top-3" />
@@ -17,11 +17,15 @@
             <div class="finale-underline-bot-3" />
         </div>
     </div>
+    <div class="arches-div">
+        <div class="arch" />
+        <div class="arch" />
+    </div>
 </div>
 
 <style>
-    .finale-upper-div {
-        background-color: var(--dark-blue);
+    .content-div {
+        background-color: var(--blue);
 
         height: 100%;
     }
@@ -132,4 +136,21 @@
     .lines-top div, .lines-bot div {
         height: 1em;
     }
+
+    .arches-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+        width: 100%;
+        padding: 4rem 0 0 0;
+    }
+
+    .arch {
+        width: 12rem;
+        height: 20rem;
+        background-color: var(--dark-blue);
+        border-radius: 9999px 9999px 0 0;
+    }
+
 </style>
