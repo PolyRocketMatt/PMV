@@ -1,0 +1,257 @@
+<div class="parent-div">
+    <div class="header-wrapper">
+        <div class="lines-top">
+            <div class="underline-top-3"></div>
+            <div class="underline-top-2"></div>
+            <div class="underline-top-1"></div>
+        </div>
+
+        <h1 class="header-text">SEIZOENSFINALE!</h1>
+
+        <div class="lines-bot">
+            <div class="underline-bot-1"></div>
+            <div class="underline-bot-2"></div>
+            <div class="underline-bot-3"></div>
+        </div>
+    </div>
+
+    <div class="data-container">
+        <h1 class="data-text">20, 21, 22 ÉN 23 APRIL!</h1>
+    </div>
+
+    <div class="info-container">
+        <div class="container-left box-container">
+            <div class="main-box">
+                <h2 class="box-header">WAAR, WANNEER</h2>
+                <p class="box-content">20, 21, 22 ÉN 23 April</p>
+                <p class="box-content">DE KOELISSE - STEENGROEVELAAN 3, 3001 LEUVEN</p>
+            </div>
+        </div>
+
+        <a href="https://my.weezevent.com/praten-met-verstraeten"
+           target="_blank"
+           class="container-right box-container ticket-container">
+           <div>
+                <h2 class="box-header">TICKETS</h2>
+                <p class="box-content">KLIK HIER OM JE TICKETS TE KOPEN</p>
+                <p class="box-content">OP = OP</p>
+           </div>
+        </a>
+    </div>
+</div>
+
+<style>
+    .parent-div {
+        background-color: transparent;
+        height: 100%;
+    }
+
+    .header-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0px;
+
+        position: relative;
+        top: 6em;
+    }
+
+    .header-text {
+        color: #D3B054;
+
+        margin: 0;
+
+        font-size: clamp(2rem, 10vw, 8rem);
+        font-family: 'Tilt Warp', sans-serif;
+
+        filter:
+            brightness(1.05)  
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .lines-top, .lines-bot {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(15px, 0.5vw, 15px);
+        width: 100%;
+    }
+
+    .lines-top { margin-bottom: 0.5em; }
+    .lines-bot { margin-top: 0.5em; }
+
+    .underline-top-3 { 
+        width: 35%; 
+        margin-right: auto; 
+        background-color: rgba(208, 143, 70, 0.9); 
+        
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .underline-top-2 { 
+        width: 50%; 
+        margin-right: auto; 
+        background-color: rgba(210, 160, 76, 0.95);  
+        
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));   
+    }
+
+    .underline-top-1 { 
+        width: 65%; 
+        margin-right: auto; 
+        background-color: rgba(211, 176, 84, 1);  
+        
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .underline-bot-1 { 
+        width: 65%; 
+        margin-left: auto; 
+        background-color: rgba(211, 176, 84, 1);  
+
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .underline-bot-2 { 
+        width: 50%; 
+        margin-left: auto; 
+        background-color: rgba(210, 160, 76, 0.95);  
+
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .underline-bot-3 { 
+        width: 35%; 
+        margin-left: auto; 
+        background-color: rgba(208, 143, 70, 0.9);  
+
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .lines-top div, 
+    .lines-bot div {
+        height: 1em;
+    }
+
+    .data-container {
+        display: flex;
+        margin-top: 6em;
+        padding: 1em;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    .data-text {
+        color: #D3B054;
+        font-size: clamp(2rem, 5vw, 8rem);
+        font-family: 'Tilt Warp', sans-serif;
+
+        filter:
+            brightness(1.05)  
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .info-container {
+        display: flex;
+
+        gap: 5em;
+
+        align-items: top;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .box-container {
+        position: relative;
+        min-width: 500px;
+        max-width: 500px;
+
+        text-align: center;
+
+        padding: 2em;
+
+        background-color: rgba(211, 176, 84, 1);
+        border-radius: 10px;
+
+        filter:
+            drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)); 
+    }
+
+    .container-right,
+    .container-right:visited,
+    .container-right:hover,
+    .container-right:active {
+        transition: all 75ms ease-out;
+    }
+
+    .container-right:hover {
+        transform: translateY(-3px);
+    }
+
+    .box-header {
+        margin-top: 0;
+        color: white;
+        font-family: 'Tilt Warp', sans-serif;
+        font-size: 2rem;
+        filter: 
+            brightness(1.05) 
+            drop-shadow(0 0 5px rgba(255,255,255,0.3))
+            drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+    }
+
+    .box-small-header {
+        margin-top: 0;
+        margin-bottom: 1em;
+        color: white;
+        font-family: 'Tilt Warp', sans-serif;
+        font-size: 1.4rem;
+        filter: 
+            brightness(1.05) 
+            drop-shadow(0 0 5px rgba(255,255,255,0.2))
+            drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+    }
+
+    .box-content {
+        color: white;
+        font-family: 'Tilt Warp', sans-serif;
+
+        filter:
+            drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+    }
+
+    .ticket-container {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+
+    @media (max-width: 480px) {
+        .box-container {
+            min-width: 100px;
+            max-width: 100px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .box-container {
+            min-width: 250px;
+            max-width: 250px;
+        }
+    }
+
+</style>
