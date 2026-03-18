@@ -19,7 +19,7 @@
     </div>
 
     <div class="data-container">
-        <h1 class="data-header">20, 21, 22 én 23 APRIL!</h1>
+        <h1 class="data-header">20, 21, 22 ÉN 23 APRIL!</h1>
     </div>
 
     <div class="info-containers">
@@ -29,35 +29,23 @@
             <div class="stagger-back back-3"></div>
             <div class="main-box">
                 <h2 class="box-header">WAAR, WANNEER</h2>
-                <p class="box-content">20, 21, 22 én 23 April</p>
-                <p class="box-content">De Koelisse - Steengroevelaan 3, 3001 Leuven</p>
+                <p class="box-content">20, 21, 22 ÉN 23 April</p>
+                <p class="box-content">DE KOELISSE - STEENGROEVELAAN 3, 3001 LEUVEN</p>
             </div>
         </div>
 
-        <div class="container-right box-container">
+        <a href="https://widget.weezevent.com/ticket/E1852011/?code=63368&locale=nl-NL&width_auto=1&color_primary=0032FA"
+            target="_blank"
+            class="container-right box-container ticket-container">
             <div class="stagger-back back-1"></div>
             <div class="stagger-back back-2"></div>
             <div class="stagger-back back-3"></div>
             <div class="main-box">
                 <h2 class="box-header">TICKETS</h2>
-                <p class="box-content">Tickets zin 
-                    <a title="Ticketverkoop Praten Met Verstraeten"
-                        href="https://widget.weezevent.com/ticket/E1852011/?code=63368&locale=nl-NL&width_auto=1&color_primary=0032FA"
-                        class="header-ticket-link"
-                        data-src="https://widget.weezevent.com/ticket/E1852011/?code=63368&locale=nl-NL&width_auto=1&color_primary=0032FA"
-                        data-id="1852011"
-                        data-resize="0"
-                        data-width_auto="1"
-                        data-noscroll="0"
-                        data-use-container="yes"
-                        data-type="neo"
-                        target="_blank"
-                        style="ticket-button"
-                        >HIER
-                    </a> te verkrijgen!</p>
+                <p class="box-content">KLIK HIER OM JE TICKETS TE KOPEN</p>
                 <p class="box-content">OP = OP</p>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 
@@ -211,7 +199,7 @@
         position: relative;
         flex: 1 1 300px; /* flexible, minimum width 300px */
         min-width: 350px;
-        max-width: 750px;
+        max-width: 550px;
     }
 
     /* Main visible box */
@@ -253,6 +241,12 @@
         font-family: 'Tilt Warp', sans-serif;
     }
 
+    .ticket-container {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
     /* Staggered background boxes */
     .stagger-back {
         position: absolute;
@@ -269,7 +263,7 @@
     .back-3 { background-color: rgba(208, 143, 70, 0.3); transform: translate(15px, 15px); }
 
     /* Responsive adjustments */
-    @media (max-width: 768px) {
+    @media (max-width: 1000px) {
         .info-containers {
             flex-direction: column;
             align-items: center;
@@ -309,5 +303,16 @@
         
         filter:
             drop-shadow(0 0 10px rgba(255, 255, 255, 0.12)); 
+    }
+
+    .container-right,
+    .container-right:visited,
+    .container-right:hover,
+    .container-right:active {
+        transition: all 75ms ease-out;
+    }
+
+    .container-right:hover {
+        transform: translateY(-3px);
     }
 </style>
