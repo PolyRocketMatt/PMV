@@ -45,6 +45,10 @@
 
         font-size: clamp(2rem, 10vw, 8rem);
         font-family: 'Tilt Warp', sans-serif;
+
+        filter:
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(128,128,128,0.25));  
     }
 
     .lines-top, .lines-bot {
@@ -63,14 +67,66 @@
     }
 
     /* Top lines: get wider as they approach the text */
-    .finale-underline-top-3 { width: 35%; margin-right: auto; background-color: rgba(208, 143, 70, 1); }
-    .finale-underline-top-2 { width: 50%; margin-right: auto; background-color: rgba(210, 160, 76, 1); }
-    .finale-underline-top-1 { width: 65%; margin-right: auto; background-color: rgba(211, 176, 84, 1); }
+    .finale-underline-top-3 { 
+        width: 35%; 
+        margin-right: auto; 
+        background-color: rgba(208, 143, 70, 0.9); 
+        
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(128,128,128,0.25));  
+    }
+
+    .finale-underline-top-2 { 
+        width: 50%; 
+        margin-right: auto; 
+        background-color: rgba(210, 160, 76, 0.95);  
+        
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(128,128,128,0.25));  
+    }
+
+    .finale-underline-top-1 { 
+        width: 65%; 
+        margin-right: auto; 
+        background-color: rgba(211, 176, 84, 1);  
+        
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(128,128,128,0.25));  
+    }
 
     /* Bottom lines: get narrower as they move away from the text */
-    .finale-underline-bot-1 { width: 65%; margin-left: auto; background-color: rgba(211, 176, 84, 1); }
-    .finale-underline-bot-2 { width: 50%; margin-left: auto; background-color: rgba(210, 160, 76, 1); }
-    .finale-underline-bot-3 { width: 35%; margin-left: auto; background-color: rgba(208, 143, 70, 1); }
+    .finale-underline-bot-1 { 
+        width: 65%; 
+        margin-left: auto; 
+        background-color: rgba(211, 176, 84, 1);  
+        
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(128,128,128,0.25));  
+    }
+
+    .finale-underline-bot-2 { 
+        width: 50%; 
+        margin-left: auto; 
+        background-color: rgba(210, 160, 76, 0.95);  
+        
+        filter: 
+            brightness(1.05)
+            drop-shadow(0 0 5px rgba(128,128,128,0.25));  
+    }
+
+    .finale-underline-bot-3 { 
+        width: 35%; 
+        margin-left: auto; 
+        background-color: rgba(208, 143, 70, 0.9);  
+        
+        filter: 
+            brightness(1.05)
+           drop-shadow(0 0 5px rgba(128,128,128,0.25));  
+    }
 
     /* Shared */
     .lines-top div, .lines-bot div {
