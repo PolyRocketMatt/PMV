@@ -12,9 +12,25 @@ import '../styles/global.css'
     </div>
 
     <div class="header-cell-right">
-        <h1 class="header-content">KOOP JE TICKETS <a href="#Tickets" class="header-ticket-link">HIER</a></h1>
+        <h1 class="header-content">KOOP JE TICKETS 
+            <a title="Ticketverkoop Praten Met Verstraeten"
+                href="https://widget.weezevent.com/ticket/E1852011/?code=63368&locale=nl-NL&width_auto=1&color_primary=0032FA"
+                class="header-ticket-link"
+                data-src="https://widget.weezevent.com/ticket/E1852011/?code=63368&locale=nl-NL&width_auto=1&color_primary=0032FA"
+                data-id="1852011"
+                data-resize="0"
+                data-width_auto="1"
+                data-noscroll="0"
+                data-use-container="yes"
+                data-type="neo"
+                target="_blank"
+                style="ticket-button"
+                >HIER
+            </a>
+        </h1>
     </div>
 </div>
+
 
 <style>
     .header-div-upper {
@@ -24,7 +40,8 @@ import '../styles/global.css'
         width: 100%;
         background-color: var(--blue);
         gap: clamp(1rem, 2vw, 2rem);
-        position: relative;
+        position: fixed;
+        z-index: 1000;  
     }
 
     .header-cell-left {
@@ -70,18 +87,24 @@ import '../styles/global.css'
     }
 
     .header-ticket-link {
-        background-color: var(--dark-orange);
+        background-color: #CD7F43;
         color: white;
         padding: 4px 10px 6px 10px;
         border-radius: 12px;
         text-decoration: underline;
+        display: inline-block;
         
-        transition: all 100ms ease-out;
+        transition: all 75ms ease-out;
+
+        filter:
+            brightness(0.9)
     }
 
     .header-ticket-link:hover {
-        background-color: var(--orange);
+        background-color: rgb(207, 140, 71, 1);
+        transform: translateY(-3px);
         
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        filter:
+            drop-shadow(0 0 10px rgba(255, 255, 255, 0.12)); 
     }
 </style>
